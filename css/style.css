@@ -483,7 +483,7 @@ ul {
   padding: 13px 30px;
   border-radius: 0;
   font-size: 16px;
-  color: #fff;
+  color: #ffffff;
   text-transform: capitalize;
   -webkit-transition: 0.5s;
   transition: 0.5s;
@@ -500,9 +500,12 @@ ul {
 @media (max-width: 991px) {
   /* line 25, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_button.scss */
   .btn_1, .btn_2 {
+    color: #fff;
     padding: 14px 30px;
   }
 }
+
+
 
 /* line 47, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_button.scss */
 .btn_2 {
@@ -3004,7 +3007,7 @@ ul {
   margin-top: 80px;
 }
 
-/* line 2, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_hotel&rasturant.scss */
+/* line 2, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/__&rasturant.scss */
 .hotel_list .single_ihotel_list {
   position: relative;
   -webkit-transition: 1s;
@@ -3047,6 +3050,23 @@ ul {
   }
 }
 
+.hotel_list .single_ihotel_list .hotel_text_iner h4 {
+  font-size: 15px;
+  margin-bottom: 15px;
+}
+
+/* line 18, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_hotel&rasturant.scss */
+.hotel_list .single_ihotel_list .hotel_text_iner h4 a {
+  color: #0c3e72;
+}
+
+@media (max-width: 991px) {
+  /* line 15, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_hotel&rasturant.scss */
+  .hotel_list .single_ihotel_list .hotel_text_iner h4 {
+    margin-bottom: 10px;
+  }
+}
+
 /* line 25, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_hotel&rasturant.scss */
 .hotel_list .single_ihotel_list .hotel_text_iner p {
   padding: 10px 0;
@@ -3054,12 +3074,18 @@ ul {
 
 /* line 28, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_hotel&rasturant.scss */
 .hotel_list .single_ihotel_list .hotel_text_iner h5 {
+  font-size: 15px;
+  color: rgba(3, 3, 3, 0.38);
   height: 5px;
 }
 
 /* line 30, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_hotel&rasturant.scss */
 .hotel_list .single_ihotel_list .hotel_text_iner h5 span {
   color: #fe5c24;
+}
+
+.hotel_list .single_ihotel_list .hotel_text_iner h5 span1 {
+  color: rgba(3, 3, 3, 0.38);
 }
 
 /* line 37, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_hotel&rasturant.scss */
@@ -3692,6 +3718,13 @@ ul {
   background-size: cover;
 }
 
+.breadcrumb_bg3 {
+  background-image: url("../img/camptown6.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 /* line 5, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_breadcrumb.scss */
 .breadcrumb {
   position: relative;
@@ -3733,6 +3766,15 @@ ul {
   text-transform: capitalize;
 }
 
+/* line 30, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_breadcrumb.scss */
+.breadcrumb .breadcrumb_iner .breadcrumb_iner_item h3 {
+  color: #fff;
+  font-size: 40px;
+  font-weight: 800;
+  margin-bottom: 24px;
+  text-transform: capitalize;
+}
+
 @media (max-width: 991px) {
   /* line 30, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_breadcrumb.scss */
   .breadcrumb .breadcrumb_iner .breadcrumb_iner_item h2 {
@@ -3756,6 +3798,68 @@ ul {
 
 /* line 54, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_breadcrumb.scss */
 .breadcrumb .breadcrumb_iner .breadcrumb_iner_item span {
+  margin: 0px 5px;
+  font-size: 12px;
+}
+
+/* line 64, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_breadcrumb.scss */
+.breadcrumb {
+  margin-bottom: 0px !important;
+}
+
+.breadcrumb .breadcrumb_iner_detail {
+  height: 300px;
+  width: 100%;
+  display: table;
+}
+
+/* line 26, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_breadcrumb.scss */
+.breadcrumb .breadcrumb_iner_detail .breadcrumb_iner_item {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+/* line 30, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_breadcrumb.scss */
+.breadcrumb .breadcrumb_iner_detail .breadcrumb_iner_item h2 {
+  color: #fff;
+  font-size: 80px;
+  font-weight: 800;
+  margin-bottom: 24px;
+  text-transform: capitalize;
+}
+
+/* line 30, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_breadcrumb.scss */
+.breadcrumb .breadcrumb_iner_detail .breadcrumb_iner_item h3 {
+  color: #fff;
+  font-size: 35px;
+  font-weight: 800;
+  margin-bottom: 24px;
+  text-transform: capitalize;
+}
+
+@media (max-width: 991px) {
+  /* line 30, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_breadcrumb.scss */
+  .breadcrumb .breadcrumb_iner_detail .breadcrumb_iner_item h2 {
+    font-size: 35px;
+    margin-bottom: 10px;
+  }
+}
+
+/* line 44, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_breadcrumb.scss */
+.breadcrumb .breadcrumb_iner_detail .breadcrumb_iner_item p {
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  text-transform: capitalize;
+}
+
+/* line 49, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_breadcrumb.scss */
+.breadcrumb .breadcrumb_iner_detail .breadcrumb_iner_item p a {
+  color: #fe5c24;
+}
+
+/* line 54, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_breadcrumb.scss */
+.breadcrumb .breadcrumb_iner_detail .breadcrumb_iner_item span {
   margin: 0px 5px;
   font-size: 12px;
 }
