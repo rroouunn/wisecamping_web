@@ -136,25 +136,25 @@
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="car_camping" role="tabpanel" aria-labelledby="car_camping-tab">
                                 <div class="booking_form">
-                                    <form action="#">
+                                    <form action="share_car_camping" method="post">
                                         <div class="form-row">
                                             <div class="form_colum">
-                                                <select class="nc_select">
+                                                <select class="nc_select" name="goodstype">
                                                     <option selected>어떤 장비를 사용해볼까요? </option>
                                                     <option value="차량">차량</option>
-                                                    <option value="텐트 및 타프">차박용 텐트 및 타프</option>
-                                                    <option value="차박 컨셉 용품">차박 컨셉 용품</option>
-                                                    <option value="기타 차박 용품">기타 차박 용품</option>
+                                                    <option value="도킹텐트,타프">차박용 텐트 및 타프</option>
+                                                    <option value="캠핑세트,캠핑세트">차박 컨셉 용품</option>
+                                                    <option value="매트,매트">기타 차박 용품</option>
                                                 </select>
                                             </div>
                                             <div class="form_colum">
-                                                <input id="datepicker_1" placeholder="대여일">
+                                                <input id="datepicker_1" placeholder="대여일" name="startdate"> 
                                             </div>
                                             <div class="form_colum">
-                                                <input id="datepicker_2" placeholder="반납일">
+                                                <input id="datepicker_2" placeholder="반납일" name="enddate">
                                             </div>
                                             <div class="form_colum">
-                                                <select class="nc_select">
+                                                <select class="nc_select" name="shareprice">
                                                     <option selected>가격대 </option>
                                                     <option value="1">10,000원 미만</option>
                                                     <option value="2">10,000원 이상 50,000원 미만</option>
@@ -163,7 +163,7 @@
                                                 </select>
                                             </div>
                                             <div class="form_btn">
-                                                <a href="#" class="btn_1">search</a>
+                                                <button type="submit" class="btn_1">search</button>
                                             </div>
                                         </div>
                                     </form>
