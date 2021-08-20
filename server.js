@@ -43,3 +43,35 @@ app.get('/db', (req, res) => {
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html')
 });
+
+app.get('/share_auto_camping', (req, res) => {
+    res.sendFile(__dirname + '/Share_autocamping.html')
+});
+
+app.get('/share_car_camping', (req, res) => {
+    res.sendFile(__dirname + '/Share_carcamping.html')
+});
+
+app.get('/info_auto_camping', (req, res) => {
+    res.sendFile(__dirname + '/info_autocamping.html')
+});
+
+app.get('/info_car_camping', (req, res) => {
+    res.sendFile(__dirname + '/info_carcamping.html')
+});
+
+app.get('/personal', (req, res) => {
+    res.sendFile(__dirname + '/personal.html')
+});
+
+app.get('/condition', (req, res) => {
+    res.sendFile(__dirname + '/condition.html')
+});
+
+app.get('/wish_list', (req, res) => {
+    res.sendFile(__dirname + '/wish_list.html')
+});
+
+app.get('/join', (req, res) => {
+    res.sendFile(__dirname + '/join.html')
+});
