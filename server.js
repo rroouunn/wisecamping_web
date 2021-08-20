@@ -68,16 +68,18 @@ app.get('/share_auto_camping', (req, res) => {
 app.post('/share_auto_camping', (req, res) => {
     const form = req.body
     const goodstype = form.goodstype.split(',')
-    console.log(goodstype)
+    const shareprice = form.shareprice.split(',')
+    console.log(form.shareprice)
     // var sql = 타입에 따라 분류하는것, 날짜 이런 애들은 아직 안 들어감
-    var sql = 'select s.goodstype, s.goodsname, s.shareprice, COUNT(r.idgoodsrentlist) as countshare from sharegoods as s INNER JOIN goodsrentlist as r ON s.idsharegoods=r.goodsid group by goodstype, goodsname, shareprice having s.goodstype IN (?, ?) order by COUNT(r.idgoodsrentlist) desc';
-    var parmas = [goodstype[0], goodstype[1]]
+    var sql = 'select s.goodstype, s.goodsname, s.shareprice, COUNT(r.idgoodsrentlist) as countshare from sharegoods as s INNER JOIN goodsrentlist as r ON s.idsharegoods=r.goodsid group by goodstype, goodsname, shareprice having (s.goodstype IN (?,?)) AND (s.shareprice between ? and ?) order by COUNT(r.idgoodsrentlist) desc';
+    var parmas = [goodstype[0], goodstype[1], shareprice[0], shareprice[1]] //type과 가격 추가
     connection.query(sql, parmas, (err, rows, fields) => {
         if (err) {
             console.log(err)
         }
         else {
             var products = rows
+            console.log(products)
             res.render('share_auto_camping', {products:products} )
         }
     })
