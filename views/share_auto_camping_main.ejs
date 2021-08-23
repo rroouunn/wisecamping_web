@@ -31,7 +31,7 @@
 </head>
 
 <body>
-    <!--::header part start::-->
+   <!--::header part start::-->
    <header class="main_menu">
         <div class="main_menu_iner">
             <div class="container">
@@ -52,18 +52,18 @@
                                         <a class="nav-link" href="/">Main</a>
                                     </li>
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle" href="/share_auto_camping_main" id="navbarDropdown"
+                                        <a class="nav-link dropdown-toggle" href="/share_auto_camping" id="navbarDropdown"
                                            role="button" data-toggle="dropdown" aria-haspopup="true"
                                            aria-expanded="false">
                                             Share
                                         </a>
                                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                            <a class="dropdown-item" href="/share_auto_camping_main">auto camping</a>
+                                            <a class="dropdown-item" href="/share_auto_camping">auto camping</a>
                                             <a class="dropdown-item" href="/share_car_camping">car camping</a>
                                         </div>
                                     </li>
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle" href="/share_auto_camping_main" id="navbarDropdown_1"
+                                        <a class="nav-link dropdown-toggle" href="/share_auto_camping" id="navbarDropdown_1"
                                            role="button" data-toggle="dropdown" aria-haspopup="true"
                                            aria-expanded="false">
                                             information
@@ -75,7 +75,7 @@
                                         </div>
                                     </li>
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle" href="/share_auto_camping_main" id="navbarDropdown_1"
+                                        <a class="nav-link dropdown-toggle" href="/share_auto_camping" id="navbarDropdown_1"
                                            role="button" data-toggle="dropdown" aria-haspopup="true"
                                            aria-expanded="false">
                                             Mypage
@@ -95,7 +95,7 @@
             </div>
         </div>
     </header>
-        <!-- Header part end-->
+    <!-- Header part end-->
 
     <!-- breadcrumb start-->
     <section class="breadcrumb breadcrumb_bg">
@@ -104,8 +104,8 @@
                 <div class="col-lg-12">
                     <div class="breadcrumb_iner">
                         <div class="breadcrumb_iner_item text-center">
-                            <h2>위시리스트</h2>
-                            <p>information</p>
+                            <h2>오토캠핑용품 공유하기</h2>
+                            <p>Share</p>
                         </div>
                     </div>
                 </div>
@@ -113,199 +113,55 @@
         </div>
     </section>
     <!-- breadcrumb start-->
-
-    <!-- hotel list css start-->
-    <section class="top_place section_padding">
+       <!-- booking part start-->
+    <section class="booking_part">
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-xl-6">
-                    <div class="section_tittle text-center">
-                        <h2>Top Places to visit</h2>
-                        <p>Waters make fish every without firmament saw had. Morning air subdue. Our. Air very one. Whales grass is fish whales winged.</p>
-                    </div>
-                </div>
-            </div>
             <div class="row">
-                <div class="col-lg-6 col-md-6">
-                    <div class="single_place">
-                        <img src="img/single_place_1.png" alt="">
-                        <div class="hover_Text d-flex align-items-end justify-content-between">
-                            <div class="hover_text_iner">
-                                <a href="#" class="place_btn">travel</a>
-                                <h3>Saintmartine Iceland</h3>
-                                <p>Technaf, Bangladesh</p>
-                                <div class="place_review">
-                                    <a href="#"><i class="fas fa-star"></i></a>
-                                    <a href="#"><i class="fas fa-star"></i></a>
-                                    <a href="#"><i class="fas fa-star"></i></a>
-                                    <a href="#"><i class="fas fa-star"></i></a>
-                                    <a href="#"><i class="fas fa-star"></i></a>
-                                    <span>(210 review)</span>
-                                </div>
-                            </div>
-                            <div class="details_icon text-right">
-                                <i class="ti-share"></i>
-                            </div>
-                        </div>
+                <div class="col-lg-12">
+                    <div class="booking_menu">
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item">
+                            <a class="nav-link active" id="auto_camping-tab" data-toggle="tab" href="#auto_camping" role="tab" aria-controls="auto_camping" aria-selected="true">오토 캠핑</a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="single_place">
-                        <img src="img/single_place_2.png" alt="">
-                        <div class="hover_Text d-flex align-items-end justify-content-between">
-                            <div class="hover_text_iner">
-                                <a href="#" class="place_btn">travel</a>
-                                <h3>Saintmartine Iceland</h3>
-                                <p>Technaf, Bangladesh</p>
-                                <div class="place_review">
-                                    <a href="#"><i class="fas fa-star"></i></a>
-                                    <a href="#"><i class="fas fa-star"></i></a>
-                                    <a href="#"><i class="fas fa-star"></i></a>
-                                    <a href="#"><i class="fas fa-star"></i></a>
-                                    <a href="#"><i class="fas fa-star"></i></a>
-                                    <span>(210 review)</span>
+                <div class="col-lg-12">
+                    <div class="booking_content">
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="auto_camping" role="tabpanel" aria-labelledby="auto_camping-tab">
+                                <div class="booking_form">
+                                    <form action="/share_auto_camping" method="post">
+                                        <div class="form-row">
+                                            <div class="form_colum">
+                                                <select class="nc_select" name="goodstype">
+                                                    <option selected>어떤 장비를 사용해볼까요? </option>
+                                                    <option value="텐트,타프">텐트 및 타프</option>
+                                                    <option value="테이블,체어">테이블 및 의자</option>
+                                                    <option value="기타,기타">기타 캠핑 용품</option>
+                                                </select>
+                                            </div>
+                                            <div class="form_colum">
+                                                <input id="datepicker_1" placeholder="대여일" name="startdate">
+                                            </div>
+                                            <div class="form_colum">
+                                                <input id="datepicker_2" placeholder="반납일" name="enddate">
+                                            </div>
+                                            <div class="form_colum">
+                                                <select class="nc_select" name="shareprice"> 
+                                                    <option selected value="0,99999999">가격대 </option>
+                                                    <option value="0,9999">10,000원 미만</option>
+                                                    <option value="10000,49999">10,000원 이상 50,000원 미만</option>
+                                                    <option value="50000,99999">50,000원 이상 100,000원 미만</option>
+                                                    <option value="100000,500000">100,000원 이상</option>
+                                                </select>
+                                            </div>
+                                            <div class="form_btn">
+                                                <button type="submit" class="btn_1">search</button>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
-                            </div>
-                            <div class="details_icon text-right">
-                                <i class="ti-share"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="single_place">
-                        <img src="img/single_place_3.png" alt="">
-                        <div class="hover_Text d-flex align-items-end justify-content-between">
-                            <div class="hover_text_iner">
-                                <a href="#" class="place_btn">travel</a>
-                                <h3>Saintmartine Iceland</h3>
-                                <p>Technaf, Bangladesh</p>
-                                <div class="place_review">
-                                    <a href="#"><i class="fas fa-star"></i></a>
-                                    <a href="#"><i class="fas fa-star"></i></a>
-                                    <a href="#"><i class="fas fa-star"></i></a>
-                                    <a href="#"><i class="fas fa-star"></i></a>
-                                    <a href="#"><i class="fas fa-star"></i></a>
-                                    <span>(210 review)</span>
-                                </div>
-                            </div>
-                            <div class="details_icon text-right">
-                                <i class="ti-share"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="single_place">
-                        <img src="img/single_place_4.png" alt="">
-                        <div class="hover_Text d-flex align-items-end justify-content-between">
-                            <div class="hover_text_iner">
-                                <a href="#" class="place_btn">travel</a>
-                                <h3>Saintmartine Iceland</h3>
-                                <p>Technaf, Bangladesh</p>
-                                <div class="place_review">
-                                    <a href="#"><i class="fas fa-star"></i></a>
-                                    <a href="#"><i class="fas fa-star"></i></a>
-                                    <a href="#"><i class="fas fa-star"></i></a>
-                                    <a href="#"><i class="fas fa-star"></i></a>
-                                    <a href="#"><i class="fas fa-star"></i></a>
-                                    <span>(210 review)</span>
-                                </div>
-                            </div>
-                            <div class="details_icon text-right">
-                                <i class="ti-share"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="single_place">
-                        <img src="img/single_place_1.png" alt="">
-                        <div class="hover_Text d-flex align-items-end justify-content-between">
-                            <div class="hover_text_iner">
-                                <a href="#" class="place_btn">travel</a>
-                                <h3>Saintmartine Iceland</h3>
-                                <p>Technaf, Bangladesh</p>
-                                <div class="place_review">
-                                    <a href="#"><i class="fas fa-star"></i></a>
-                                    <a href="#"><i class="fas fa-star"></i></a>
-                                    <a href="#"><i class="fas fa-star"></i></a>
-                                    <a href="#"><i class="fas fa-star"></i></a>
-                                    <a href="#"><i class="fas fa-star"></i></a>
-                                    <span>(210 review)</span>
-                                </div>
-                            </div>
-                            <div class="details_icon text-right">
-                                <i class="ti-share"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="single_place">
-                        <img src="img/single_place_2.png" alt="">
-                        <div class="hover_Text d-flex align-items-end justify-content-between">
-                            <div class="hover_text_iner">
-                                <a href="#" class="place_btn">travel</a>
-                                <h3>Saintmartine Iceland</h3>
-                                <p>Technaf, Bangladesh</p>
-                                <div class="place_review">
-                                    <a href="#"><i class="fas fa-star"></i></a>
-                                    <a href="#"><i class="fas fa-star"></i></a>
-                                    <a href="#"><i class="fas fa-star"></i></a>
-                                    <a href="#"><i class="fas fa-star"></i></a>
-                                    <a href="#"><i class="fas fa-star"></i></a>
-                                    <span>(210 review)</span>
-                                </div>
-                            </div>
-                            <div class="details_icon text-right">
-                                <i class="ti-share"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="single_place">
-                        <img src="img/single_place_3.png" alt="">
-                        <div class="hover_Text d-flex align-items-end justify-content-between">
-                            <div class="hover_text_iner">
-                                <a href="#" class="place_btn">travel</a>
-                                <h3>Saintmartine Iceland</h3>
-                                <p>Technaf, Bangladesh</p>
-                                <div class="place_review">
-                                    <a href="#"><i class="fas fa-star"></i></a>
-                                    <a href="#"><i class="fas fa-star"></i></a>
-                                    <a href="#"><i class="fas fa-star"></i></a>
-                                    <a href="#"><i class="fas fa-star"></i></a>
-                                    <a href="#"><i class="fas fa-star"></i></a>
-                                    <span>(210 review)</span>
-                                </div>
-                            </div>
-                            <div class="details_icon text-right">
-                                <i class="ti-share"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="single_place">
-                        <img src="img/single_place_4.png" alt="">
-                        <div class="hover_Text d-flex align-items-end justify-content-between">
-                            <div class="hover_text_iner">
-                                <a href="#" class="place_btn">travel</a>
-                                <h3>Saintmartine Iceland</h3>
-                                <p>Technaf, Bangladesh</p>
-                                <div class="place_review">
-                                    <a href="#"><i class="fas fa-star"></i></a>
-                                    <a href="#"><i class="fas fa-star"></i></a>
-                                    <a href="#"><i class="fas fa-star"></i></a>
-                                    <a href="#"><i class="fas fa-star"></i></a>
-                                    <a href="#"><i class="fas fa-star"></i></a>
-                                    <span>(210 review)</span>
-                                </div>
-                            </div>
-                            <div class="details_icon text-right">
-                                <i class="ti-share"></i>
                             </div>
                         </div>
                     </div>
@@ -313,7 +169,49 @@
             </div>
         </div>
     </section>
-    <!-- hotel list css end -->
+
+    <!--    공유물품-->
+    <section class="hotel_list section_padding">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-6">
+                    <div class="section_tittle text-center">
+                        <h2>인기있는 오토 캠핑 장비</h2>
+                        <p>원하는 캠핑장비를 선택해 나만의 캠핑키트를 꾸려봐요</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <% products.forEach(product=>{ %>     
+                    <div class="col-lg-4 col-sm-6">
+                        <div class="single_ihotel_list">
+                            <!-- <img src="img/<%= product.imgtitle %>.png" alt=""> -->
+                            <a href="Share_car_detail1.html"><img src="img/camptown6.png" alt=""></a>
+                            <div class="hover_text">
+                                <div class="share_icon">
+                                    <i class="ti-share"></i>
+                                </div>
+                            </div>
+                            <div class="hotel_text_iner">
+                                <h3> <a href="#"> <%= product.goodsname %></a></h3>
+                                <div class="place_review">
+                                    <!-- <a href="#"><i class="fas fa-star"></i></a>
+                                    <a href="#"><i class="fas fa-star"></i></a>
+                                    <a href="#"><i class="fas fa-star"></i></a>
+                                    <a href="#"><i class="fas fa-star"></i></a>
+                                    <a href="#"><i class="fas fa-star"></i></a> -->
+                                </div>
+                                <h5>From <span><%= product.shareprice %>원</span></h5>
+                            </div>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+    </section>
+
+    <!--================Blog Area =================-->
+
 
     <!-- footer part start-->
     <footer class="footer-area">

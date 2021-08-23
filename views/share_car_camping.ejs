@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>슬기로운 캠핑생활</title>
-    <link rel="icon" type="image/png" href="img/tent.png">img/tent.png">
+    <link rel="icon" type="image/png" href="img/tent.png">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <!-- animate CSS -->
@@ -98,22 +98,21 @@
     <!-- Header part end-->
 
     <!-- breadcrumb start-->
-    <section class="breadcrumb breadcrumb_bg">
-        <div class="container">
+    <section class="breadcrumb breadcrumb_bg2">
+      <div class="container">
             <div class="row">
-                <div class="col-lg-12">
-                    <div class="breadcrumb_iner">
-                        <div class="breadcrumb_iner_item text-center">
-                            <h2>오토캠핑용품 공유하기</h2>
-                            <p>Share</p>
+                  <div class="col-lg-12">
+                        <div class="breadcrumb_iner">
+                              <div class="breadcrumb_iner_item text-center">
+                                    <h2>차박용품 공유하기</h2>
+                                    <p>Share</p>
+                              </div>
                         </div>
-                    </div>
-                </div>
+                  </div>
             </div>
-        </div>
-    </section>
-    <!-- breadcrumb start-->
-       <!-- booking part start-->
+      </div>
+      </section>
+      <!-- breadcrumb start-->
     <section class="booking_part">
         <div class="container">
             <div class="row">
@@ -121,7 +120,7 @@
                     <div class="booking_menu">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                             <li class="nav-item">
-                            <a class="nav-link active" id="auto_camping-tab" data-toggle="tab" href="#auto_camping" role="tab" aria-controls="auto_camping" aria-selected="true">오토 캠핑</a>
+                            <a class="nav-link" id="car_camping-tab" data-toggle="tab" href="#car_camping" role="tab" aria-controls="car_camping" aria-selected="false">차박</a>
                             </li>
                         </ul>
                     </div>
@@ -129,26 +128,27 @@
                 <div class="col-lg-12">
                     <div class="booking_content">
                         <div class="tab-content" id="myTabContent">
-                            <div class="tab-pane fade show active" id="auto_camping" role="tabpanel" aria-labelledby="auto_camping-tab">
+                            <div class="tab-pane fade show active" id="car_camping" role="tabpanel" aria-labelledby="car_camping-tab">
                                 <div class="booking_form">
-                                    <form action="/share_auto_camping" method="post">
+                                    <form action="/share_car_camping" method="post">
                                         <div class="form-row">
                                             <div class="form_colum">
-                                                <select class="nc_select" name="goodstype">
+                                                <select class="nc_select" name="caritemtype">
                                                     <option selected>어떤 장비를 사용해볼까요? </option>
-                                                    <option value="텐트,타프">텐트 및 타프</option>
-                                                    <option value="테이블,체어">테이블 및 의자</option>
-                                                    <option value="기타,기타">기타 캠핑 용품</option>
+                                                    <option value="차량,차량">차량</option>
+                                                    <option value="도킹텐트,타프">차박용 텐트 및 타프</option>
+                                                    <option value="캠핑세트,캠핑세트">차박 컨셉 용품</option>
+                                                    <option value="매트,매트">기타 차박 용품</option>
                                                 </select>
                                             </div>
                                             <div class="form_colum">
-                                                <input id="datepicker_1" placeholder="대여일" name="startdate">
+                                                <input id="datepicker_1" placeholder="대여일" name="startdate"> 
                                             </div>
                                             <div class="form_colum">
                                                 <input id="datepicker_2" placeholder="반납일" name="enddate">
                                             </div>
                                             <div class="form_colum">
-                                                <select class="nc_select" name="shareprice"> 
+                                                <select class="nc_select" name="caritemprice">
                                                     <option selected value="0,99999999">가격대 </option>
                                                     <option value="0,9999">10,000원 미만</option>
                                                     <option value="10000,49999">10,000원 이상 50,000원 미만</option>
@@ -169,41 +169,40 @@
             </div>
         </div>
     </section>
-
+    <!--================Blog Area =================-->
     <!--    공유물품-->
     <section class="hotel_list section_padding">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-xl-6">
                     <div class="section_tittle text-center">
-                        <h2>검색한 조건에 맞는 오토 캠핑 장비</h2>
-                        <p>원하는 캠핑장비를 선택해 나만의 캠핑키트를 꾸려봐요</p>
+                        <h2>인기있는 차박 장비</h2>
+                        <p>원하는 차박 장비를 선택해 나만의 차박을 즐겨봐요</p>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <% products.forEach(product=>{ %>     
+                <% products.forEach(product=>{ %>
                     <div class="col-lg-4 col-sm-6">
                         <div class="single_ihotel_list">
-                            <!-- <img src="img/<%= product.imgtitle %>.png" alt=""> -->
-                            <a href="Share_car_detail1.html"><img src="img/camptown6.png" alt=""></a>
+                            <img src="img/car1.png" alt="">
                             <div class="hover_text">
                                 <div class="share_icon">
                                     <i class="ti-share"></i>
                                 </div>
                             </div>
                             <div class="hotel_text_iner">
-                                <h3> <a href="#"> <%= product.goodsname %></a></h3>
+                                <h3> <a href="#"> <%= product.caritemname %></a></h3>
                                 <div class="place_review">
                                     <a href="#"><i class="fas fa-star"></i></a>
                                     <a href="#"><i class="fas fa-star"></i></a>
                                     <a href="#"><i class="fas fa-star"></i></a>
                                     <a href="#"><i class="fas fa-star"></i></a>
                                     <a href="#"><i class="fas fa-star"></i></a>
-                                    <span>(<%= product.countshare %> share)</span>
+                                    <span>(<%= product.countshare%> share)</span>
                                 </div>
                                 <p></p>
-                                <h5>From <span><%= product.shareprice %>원</span></h5>
+                                <h5>From <span><%= product.caritemprice%>원</span></h5>
                             </div>
                         </div>
                     </div>
@@ -211,9 +210,7 @@
             </div>
         </div>
     </section>
-
-    <!--================Blog Area =================-->
-
+    <!--================ Blog Area end =================-->
 
     <!-- footer part start-->
     <footer class="footer-area">
@@ -224,21 +221,6 @@
                         <h4>WISE CAMPING LIFE</h4>
                         <h4>슬기로운 캠핑생활</h4>
                         <p>김다은 김준석 김찬미 김로운</p>
-<!--                        <ul>-->
-<!--                            <li><a href="#">Miami, USA</a></li>-->
-<!--                            <li><a href="#">California, USA</a></li>-->
-<!--                            <li><a href="#">London, UK</a></li>-->
-<!--                            <li><a href="#">Saintmartine, Bangladesh</a></li>-->
-<!--                            <li><a href="#">Mount Everast, India</a></li>-->
-<!--                            <li><a href="#">Sidney, Australia</a></li>-->
-<!--                            <li><a href="#">Miami, USA</a></li>-->
-<!--                            <li><a href="#">California, USA</a></li>-->
-<!--                            <li><a href="#">London, UK</a></li>-->
-<!--                            <li><a href="#">Saintmartine, Bangladesh</a></li>-->
-<!--                            <li><a href="#">Mount Everast, India</a></li>-->
-<!--                            <li><a href="#">Sidney, Australia</a></li>-->
-<!--                        </ul>-->
-
                     </div>
                 </div>
                 <div class="col-sm-6 col-md-4">

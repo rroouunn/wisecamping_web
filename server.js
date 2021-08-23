@@ -25,33 +25,48 @@ var connection = mysql.createConnection({
 
 connection.connect();
 
-// app.get('/db', (req, res) => {
-// // '/db'는 접속하는 파일 경론데 'localhost:3000/db' url로 접속하면 작동되는 코드
-
-//     pool.getConnection((err, connection) => {
-//         if (err) throw err; // not connected!
-        
-//         // Use the connection
-//         connection.query('SELECT * FROM sharegoods', (error, results, fields) => {
-//             /*
-//                 테이블명 잘 확인해서 쿼리문 수정!!
-//             */
-//             res.send(JSON.stringify(results)); // 웹페이지 상에 렌더링 해주는 코드
-//             console.log(results);
-//             connection.release();
-
-//             // Handle error after the release.
-//             if (error) throw error;
-//             // Don't use the connection here, it has been returned to the pool.
-//         });
-//     });
-// });
-
-app.get('/', (req, res) => {
+app.get('', (req, res) => {
     res.sendFile(__dirname + '/index.html')
 });
 
-app.get('/share_auto_camping', (req, res) => {
+app.get('/shareform', (req, res) => {
+    res.render('shareform')
+});
+
+app.get('/share_done', (req, res) => {
+    res.render('share_done')
+});
+
+app.post('/shareform', (req, res) => {
+    const form = req.body
+    const idmember = form.idmember
+    const itemtype = form.itemtype
+    const itemname = form.itemname
+    const shareprice = form.shareprice
+    const description = form.description
+
+    if(!idmember || !itemtype || !itemname || !shareprice || !description) {
+        // 하나라도 누락된 경우
+        res.send('정보를 모두 입력해주세요')
+        console.log(idmember, itemtype, itemname, shareprice, description)
+        return
+    }
+
+    var sql = 'insert into camping_db.shareform (idmember, itemtype, itemname, shareprice, description) values (?, ?, ?, ?, ?)';
+    var params = [idmember, itemtype, itemname, shareprice, description]
+    console.log(params)
+
+    connection.query(sql, params, (err, rows, fields) => {
+        if(err)
+            console.log(err)
+        else {
+            console.log(rows)
+            res.render('share_done')
+        }
+    })
+});
+
+app.get('/share_auto_camping_main', (req, res) => {
     // 처음 shareautocamping 들어갔을 때는 전체 목록 보여주기
     var sql = 'select sharegoods.goodstype, sharegoods.goodsname, sharegoods.shareprice from sharegoods';
     connection.query(sql, (err, rows, fields) => {
@@ -60,7 +75,7 @@ app.get('/share_auto_camping', (req, res) => {
         }
         else {
             var products = rows
-            res.render('share_auto_camping', {products:products} )
+            res.render('share_auto_camping_main', {products:products} )
         }
     })
 });
@@ -86,22 +101,35 @@ app.post('/share_auto_camping', (req, res) => {
 });
 
 app.get('/share_car_camping', (req, res) => {
-    res.sendFile(__dirname + '/Share_carcamping.html')
+    // 처음 share car camping에 들어갔을 때는 전체 목록 보여주기
+    var sql = 'select carcamitem.caritemtype, carcamitem.caritemname, carcamitem.caritemprice from carcamitem';
+    connection.query(sql, (err, rows, fields) => {
+        if (err) {
+            console.log(err)
+        }
+        else {
+            var products = rows
+            res.render('share_car_camping', {products:products} )
+        }
+    })
 });
 
 app.post('/share_car_camping', (req, res) => {
     const form = req.body
-    const goodstype = form.goodstype.split(',')
-    console.log(goodstype)
+    const caritemtype = form.caritemtype.split(',')
+    const caritemprice = form.caritemprice.split(',')
+    console.log(form.caritemprice)
     // 테이블 다 변경 되면 sql문 바꿔서 넣어주기
-    var sql = 'select sharegoods.goodstype, sharegoods.goodsname, sharegoods.shareprice from sharegoods INNER JOIN goodsrentlist ON sharegoods.idsharegoods=goodsrentlist.idgoodsrentlist group by goodstype, goodsname having sharegoods.goodstype IN (?, ?) order by COUNT(goodsrentlist.idgoodsrentlist) desc';
-    var parmas = [goodstype[0], goodstype[1]]
+    var sql = 'select carcamitem.caritemtype, carcamitem.caritemname, carcamitem.caritemprice from carcamitem INNER JOIN carrentlist ON carcamitem.idcarcamitem=carrentlist.idcarrentlist group by caritemtype, caritemname having carcamitem.caritemtype IN (?, ?) order by COUNT(carrentlist.idcarrentlist) desc';
+    var parmas = [caritemtype[0], caritemtype[1], caritemprice[0], caritemprice[1]]
     connection.query(sql, parmas, (err, rows, fields) => {
         if (err) {
             console.log(err)
         }
         else {
-            console.log(rows)
+            var products = rows
+            console.log(products)
+            res.render('share_car_camping', {products:products} )
         }
     })
 });
