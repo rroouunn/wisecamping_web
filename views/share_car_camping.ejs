@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>슬기로운 캠핑생활</title>
-    <link rel="icon" type="image/png" href="img/tent.png">
+    <link rel="icon" type="image/png" href="/img/tent.png">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <!-- animate CSS -->
@@ -52,14 +52,14 @@
                                         <a class="nav-link" href="/">Main</a>
                                     </li>
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle" href="/share_auto_camping" id="navbarDropdown"
+                                        <a class="nav-link dropdown-toggle" href="/share_auto_camping_main" id="navbarDropdown"
                                            role="button" data-toggle="dropdown" aria-haspopup="true"
                                            aria-expanded="false">
                                             Share
                                         </a>
-                                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                            <a class="dropdown-item" href="/share_auto_camping">auto camping</a>
-                                            <a class="dropdown-item" href="/share_car_camping">car camping</a>
+                                        <div class="dropdown-menu" aria-labelledby="navbarDrop-down">
+                                            <a class="dropdown-item" href="/share_auto_camping_main">auto camping</a>
+                                            <a class="dropdown-item" href="/share_car_camping_main">car camping</a>
                                         </div>
                                     </li>
                                     <li class="nav-item dropdown">
@@ -75,7 +75,7 @@
                                         </div>
                                     </li>
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle" href="/share_auto_camping" id="navbarDropdown_1"
+                                        <a class="nav-link dropdown-toggle" href="/share_auto_camping_main" id="navbarDropdown_1"
                                            role="button" data-toggle="dropdown" aria-haspopup="true"
                                            aria-expanded="false">
                                             Mypage
@@ -120,7 +120,7 @@
                     <div class="booking_menu">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                             <li class="nav-item">
-                            <a class="nav-link" id="car_camping-tab" data-toggle="tab" href="#car_camping" role="tab" aria-controls="car_camping" aria-selected="false">차박</a>
+                            <a class="nav-link" id="car_camping-tab" data-toggle="tab" href="/share_car_camping" role="tab" aria-controls="car_camping" aria-selected="false">차박</a>
                             </li>
                         </ul>
                     </div>
@@ -176,8 +176,8 @@
             <div class="row justify-content-center">
                 <div class="col-xl-6">
                     <div class="section_tittle text-center">
-                        <h2>인기있는 차박 장비</h2>
-                        <p>원하는 차박 장비를 선택해 나만의 차박을 즐겨봐요</p>
+                        <h2>검색한 조건에 맞는 차박 장비</h2>
+                        <p>원하는 차박 장비를 선택해 나만의 차박 키트를 꾸려봐요</p>
                     </div>
                 </div>
             </div>
@@ -185,7 +185,7 @@
                 <% products.forEach(product=>{ %>
                     <div class="col-lg-4 col-sm-6">
                         <div class="single_ihotel_list">
-                            <img src="img/car1.png" alt="">
+                            <a href="/detail"><img src="img/<%= product.image %>.png" alt=""></a>
                             <div class="hover_text">
                                 <div class="share_icon">
                                     <i class="ti-share"></i>

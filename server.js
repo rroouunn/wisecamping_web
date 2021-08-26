@@ -68,7 +68,7 @@ app.post('/shareform', (req, res) => {
 
 app.get('/share_auto_camping_main', (req, res) => {
     // 처음 shareautocamping 들어갔을 때는 전체 목록 보여주기
-    var sql = 'select sharegoods.goodstype, sharegoods.goodsname, sharegoods.shareprice from sharegoods';
+    var sql = 'select sharegoods.goodstype, sharegoods.image, sharegoods.goodsname, sharegoods.shareprice from sharegoods';
     connection.query(sql, (err, rows, fields) => {
         if (err) {
             console.log(err)
@@ -85,8 +85,7 @@ app.post('/share_auto_camping', (req, res) => {
     const goodstype = form.goodstype.split(',')
     const shareprice = form.shareprice.split(',')
     console.log(form.shareprice)
-    // var sql = 타입에 따라 분류하는것, 날짜 이런 애들은 아직 안 들어감
-    var sql = 'select s.goodstype, s.goodsname, s.shareprice, COUNT(r.idgoodsrentlist) as countshare from sharegoods as s INNER JOIN goodsrentlist as r ON s.idsharegoods=r.goodsid group by goodstype, goodsname, shareprice having (s.goodstype IN (?,?)) AND (s.shareprice between ? and ?) order by COUNT(r.idgoodsrentlist) desc';
+    var sql = 'select s.goodstype, s.image, s.goodsname, s.shareprice, COUNT(r.idgoodsrentlist) as countshare from sharegoods as s INNER JOIN goodsrentlist as r ON s.idsharegoods=r.goodsid group by goodstype, goodsname, shareprice having (s.goodstype IN (?,?)) AND (s.shareprice between ? and ?) order by COUNT(r.idgoodsrentlist) desc';
     var parmas = [goodstype[0], goodstype[1], shareprice[0], shareprice[1]] //type과 가격 추가
     connection.query(sql, parmas, (err, rows, fields) => {
         if (err) {
@@ -100,16 +99,16 @@ app.post('/share_auto_camping', (req, res) => {
     })
 });
 
-app.get('/share_car_camping', (req, res) => {
+app.get('/share_car_camping_main', (req, res) => {
     // 처음 share car camping에 들어갔을 때는 전체 목록 보여주기
-    var sql = 'select carcamitem.caritemtype, carcamitem.caritemname, carcamitem.caritemprice from carcamitem';
+    var sql = 'select carcamitem.caritemtype, carcamitem.image, carcamitem.caritemname, carcamitem.caritemprice from carcamitem';
     connection.query(sql, (err, rows, fields) => {
         if (err) {
             console.log(err)
         }
         else {
             var products = rows
-            res.render('share_car_camping', {products:products} )
+            res.render('share_car_camping_main', {products:products} )
         }
     })
 });
@@ -119,8 +118,7 @@ app.post('/share_car_camping', (req, res) => {
     const caritemtype = form.caritemtype.split(',')
     const caritemprice = form.caritemprice.split(',')
     console.log(form.caritemprice)
-    // 테이블 다 변경 되면 sql문 바꿔서 넣어주기
-    var sql = 'select carcamitem.caritemtype, carcamitem.caritemname, carcamitem.caritemprice from carcamitem INNER JOIN carrentlist ON carcamitem.idcarcamitem=carrentlist.idcarrentlist group by caritemtype, caritemname having carcamitem.caritemtype IN (?, ?) order by COUNT(carrentlist.idcarrentlist) desc';
+    var sql = 'select carcamitem.caritemtype, carcamitem.image, carcamitem.caritemname, carcamitem.caritemprice from carcamitem INNER JOIN carrentlist ON carcamitem.idcarcamitem=carrentlist.idcarrentlist group by caritemtype, caritemname having carcamitem.caritemtype IN (?, ?) order by COUNT(carrentlist.idcarrentlist) desc';
     var parmas = [caritemtype[0], caritemtype[1], caritemprice[0], caritemprice[1]]
     connection.query(sql, parmas, (err, rows, fields) => {
         if (err) {
@@ -156,4 +154,18 @@ app.get('/wish_list', (req, res) => {
 
 app.get('/join', (req, res) => {
     res.sendFile(__dirname + '/join.html')
+});
+
+app.get('/detail/:idx', (req, res, next) => {
+    const idx = res.params.idx;
+        var sql = 'select idsharegoods, goodstype, goodsname, shareprice from sharegoods where idsharegoods = ?'
+    
+    connection.query(sql, [idx], (err, row) => {
+        if(err) {
+            console.log(err)
+        }
+        else {
+            res.render('detail', {title : 장비상세, row:row[0]})
+        }
+    })
 });
